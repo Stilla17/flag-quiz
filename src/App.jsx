@@ -1,12 +1,19 @@
-import { useState } from 'react'
-import Herader from './components/Nav/header/Herader'
+import React from 'react'
+import { Route, Routes } from 'react-router'
+import Layout from './Pages/Layout'
+import HomePage from './Pages/HomePage'
 
-function App() {
-
+const App = () => {
   return (
-    <>
-     <Herader />
-    </>
+    <div>
+      {/* <Routes>
+        <Route element={<Layout />}>
+          <Route />
+        </Route >
+      </Routes> */}
+
+      <HomePage />
+    </div>
   )
 }
 
