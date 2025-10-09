@@ -22,7 +22,7 @@ export function ThemeProvider({ children }) {
         className={`min-h-screen transition-colors duration-500 ${
           isRedTheme
             ? "bg-red-900 text-white"
-            : "bg-[#0A0F24] text-base-content"
+            : "bg-[#0A0F24]"
         }`}
       >
         {children}
