@@ -4,9 +4,15 @@ import { useTheme } from "../ThemeProvider";
 function Nav() {
   const { isRedTheme, setIsRedTheme } = useTheme();
   const [DateUse, setDateUse] = useState("");
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    document.querySelector("html").setAttribute("data-theme", theme);
+  }, [theme]);
 
   let now = new Date();
   const house = now.getHours();
+  const minutes = now.getMinutes();
 
   useEffect(() => {
     if (house <= 12) {
