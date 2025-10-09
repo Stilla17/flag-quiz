@@ -6,7 +6,7 @@ function Layout() {
   return (
     <div className="flex min-h-screen">
       <SideBar />
-      <main className="flex-1 bg-[#f4f5fa] p-6 transition-all duration-300">
+      <main className="flex-1 p-6 transition-all duration-300">
         <Outlet />
       </main>
     </div>
