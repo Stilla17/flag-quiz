@@ -3,12 +3,21 @@
 
 
 .nav-h2 {
-    color: #fb2c36;
+    color: #940b0b;
 }
 
 .nav-h2-span {
     color: white;
 }
+.BarStrelka {
+    background: linear-gradient(to bottom, #ff2a2a, #800000);
+}
+
+.flag{
+    color: black;
+}
+
+.BarSunV
 
 .toggel-btn {
     background-color: #fb2c36;
@@ -19,13 +28,21 @@
 }
 
 .dark-blue-theme .toggel-btn {
-    background-color: var(--color-primary);
+    background-color: #081636;
 }
 
 .dark-blue-theme .huse {
     color: white;
 }
 
+.dark-blue-theme .BarStrelka{
+  background-color: rgba(30, 58, 138, 0.7); 
+  transition: background-color 0.3s ease;
+}
+
+.dark-blue-theme .flag{
+    color: white;
+} 
 /* .dark-blue-theme .nav-h2-span{
 
 } */

@@ -1,9 +1,10 @@
 import React from 'react'
+import Herader from '../components/Nav/header/Herader'
 
 function Game() {
   return (
     <div>
-        <h1>game</h1>
+        <Herader />
     </div>
   )
 }

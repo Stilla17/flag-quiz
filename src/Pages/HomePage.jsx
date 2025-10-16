@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Nav from '../components/Nav/Nav'
 import Orb from '../components/OrbReact/Orb.jsx'
+import Herader from '../components/Nav/header/Herader.jsx';
 
 function HomePage() {
+    const [houss, setHouss] = useState(0)
+    const [min, setmin] = useState(0)
 
-  let now = new Date();
-  const house = now.getHours();
-  const minutes = now.getMinutes();
+  
+  setInterval(() => {
+    let now = new Date();
+    setHouss(now.getHours())
+    setmin(now.getMinutes())
+  }, 2000);
+
   return (
-    <div>
+    <div >
       <nav>
         <Nav />
       </nav>
@@ -17,7 +24,7 @@ function HomePage() {
           <div className='w-full absolute rounded-[50px] h-[400px]'>
             <Orb hoverIntensity={0.5} rotateOnHover={true} hue={200} forceHoverState={false} />
           </div>
-          <h2 className='text-[52px] font-bold huse'>{house} : {minutes}</h2>
+          <h2 className='text-[52px] font-bold huse'>{houss} : {min}</h2>
         </div>
       </div>
     </div>

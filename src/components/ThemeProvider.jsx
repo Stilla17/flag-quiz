@@ -20,11 +20,9 @@ export function ThemeProvider({ children }) {
     <ThemeContext.Provider value={{ isRedTheme, setIsRedTheme }}>
       <div
         className={`min-h-screen transition-colors duration-500 ${isRedTheme
-            ? "bg-red-900 text-white"
-            : "bg-[#0A0F24]"
+            ? "bg-gradient-to-b from-[#ff3b3b] to-[#1a0000] text-white"
+            : "bg-gradient-to-b from-[#081636] to-[#0d2b6b]"
         }`}
-            : "bg-[#0A0F24] text-base-content"
-          }`}
       >
         {children}
       </div>

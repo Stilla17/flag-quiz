@@ -47,8 +47,8 @@ function SideBar() {
     };
 
     return (
-        <div onMouseEnter={() => setShowArrow(true)} onMouseLeave={() => setShowArrow(false)} className={`${sidebarWidth()} h-[90vh] ml-[10px] mt-[25px] mb-[25px] bg-gradient-to-b from-[#081636] to-[#0d2b6b] text-white flex flex-col justify-between transition-all duration-300 rounded-3xl relative shadow-2xl border border-blue-900/30`}>
-            <button onClick={() => setOpen(!open)} className={`absolute right-2 top-3 p-2 rounded-full bg-[#1e3a8a]/70 hover:bg-[#2563eb]/80 transition-all duration-300 ${arrowVisible()}`}>{open ? <IoChevronBack /> : <IoChevronForward />}</button>
+        <div onMouseEnter={() => setShowArrow(true)} onMouseLeave={() => setShowArrow(false)} className={`${sidebarWidth()} h-[90vh] ml-[10px] mt-[25px] mb-[25px] BarSunV text-white flex flex-col justify-between transition-all duration-300 rounded-3xl relative shadow-2xl border border-blue-900/30`}>
+            <button onClick={() => setOpen(!open)} className={`absolute right-2 top-3 p-2 rounded-full transition-all duration-300 BarStrelka ${arrowVisible()}`}>{open ? <IoChevronBack /> : <IoChevronForward />}</button>
 
             <div className="flex flex-col gap-2 mt-14 px-3">
                 {menu.map((item, i) => (

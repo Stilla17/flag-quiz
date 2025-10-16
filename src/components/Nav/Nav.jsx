@@ -33,7 +33,7 @@ function Nav() {
       </h2>
 
       <button
-        className="bg-white rounded-[10px] p-2 toggel-btn"
+        className="rounded-[10px] p-2 border border-blue-900/30 toggel-btn"
         onClick={() => setIsRedTheme(!isRedTheme)}
       >
         {isRedTheme ? "☀️" : "🌙"}
