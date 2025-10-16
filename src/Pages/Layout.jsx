@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import SideBar from './../components/SideBar/SideBar.jsx';
 
 function Layout() {
+
   return (
     <div className="flex min-h-screen">
       <SideBar />
