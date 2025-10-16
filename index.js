@@ -1,22 +1,41 @@
 const express = require("express");
-const cors = require("cors"); 
+const cors = require("cors");
 const app = express();
 const PORT = 3000;
+const mongoose = require("mongoose");
 
-app.use(cors()); 
+app.use(cors());
+app.use(express.json());
 
-const countries = [
-  { name: "Uzbekistan", code: "uz" },
-  { name: "Kazakhstan", code: "kz" },
-  { name: "Russia", code: "ru" },
-  { name: "USA", code: "us" },
-  { name: "Japan", code: "jp" },
-  { name: "Germany", code: "de" },
-  { name: "France", code: "fr" },
-  { name: "Turkey", code: "tr" },
-  { name: "Italy", code: "it" },
-  { name: "Brazil", code: "br" }
-];
+mongoose
+  .connect("mongodb://localhost:27017/test", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    family: 4,
+  })
+  .then(() => console.log("✅ MongoDB ulandi"))
+  .catch((err) => console.log("❌ Xato:", err));
+
+const flagSchema = new mongoose.Schema({
+  id: String,
+  name: String,
+  code: String,
+});
+
+const Flag = mongoose.model("flags", flagSchema, "flags");
+
+// const countries = [
+//   { name: "Uzbekistan", code: "uz" },
+//   { name: "Kazakhstan", code: "kz" },
+//   { name: "Russia", code: "ru" },
+//   { name: "USA", code: "us" },
+//   { name: "Japan", code: "jp" },
+//   { name: "Germany", code: "de" },
+//   { name: "France", code: "fr" },
+//   { name: "Turkey", code: "tr" },
+//   { name: "Italy", code: "it" },
+//   { name: "Brazil", code: "br" },
+// ];
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -26,34 +45,48 @@ function shuffle(array) {
   return array;
 }
 
-function generateOptions(numOptions = 3) {
-  const correctCountry = countries[Math.floor(Math.random() * countries.length)];
-  const otherCountries = countries.filter(c => c.name !== correctCountry.name);
+async function generateOptions(numOptions = 3) {
+  const countries = await Flag.find();
+
+  if (!countries.length) {
+    throw new Error("❌ Ma'lumot topilmadi. flags kolleksiyasi bo‘sh!");
+  }
+
+  const correctCountry =
+    countries[Math.floor(Math.random() * countries.length)];
+  const otherCountries = countries.filter(
+    (c) => c.name !== correctCountry.name
+  );
 
   const wrongCountries = shuffle(otherCountries).slice(0, numOptions - 1);
 
   const options = [
-    ...wrongCountries.map(c => ({
+    ...wrongCountries.map((c) => ({
       title: c.name,
-      value: false
+      value: false,
     })),
     {
       title: correctCountry.name,
-      value: true
-    }
+      value: true,
+    },
   ];
 
   const finalOptions = shuffle(options);
 
   return {
     options: finalOptions,
-    flag: `https://flagcdn.com/w320/${correctCountry.code}.png` 
+    flag: `https://flagcdn.com/w320/${correctCountry.code}.png`,
   };
 }
 
-app.get("/quiz", (req, res) => {
-  const question = generateOptions(4);
-  res.json(question);
+app.get("/quiz", async (req, res) => {
+  try {
+    const question = await generateOptions(4);
+    res.json(question);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server xatosi" });
+  }
 });
 
 app.listen(PORT, () => {
