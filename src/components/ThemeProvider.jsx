@@ -3,12 +3,10 @@ import { createContext, useContext, useState, useEffect } from "react";
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [isRedTheme, setIsRedTheme] = useState(true);
-
-  useEffect(() => {
+  const [isRedTheme, setIsRedTheme] = useState(() => {
     const saved = localStorage.getItem("theme");
-    if (saved) setIsRedTheme(saved === "red");
-  }, []);
+    return saved === "red"; 
+  });
 
   useEffect(() => {
     localStorage.setItem("theme", isRedTheme ? "red" : "primary");
@@ -19,7 +17,8 @@ export function ThemeProvider({ children }) {
   return (
     <ThemeContext.Provider value={{ isRedTheme, setIsRedTheme }}>
       <div
-        className={`min-h-screen transition-colors duration-500 ${isRedTheme
+        className={`min-h-screen transition-colors duration-500 ${
+          isRedTheme
             ? "bg-gradient-to-b from-[#ff3b3b] to-[#1a0000] text-white"
             : "bg-gradient-to-b from-[#081636] to-[#0d2b6b]"
         }`}

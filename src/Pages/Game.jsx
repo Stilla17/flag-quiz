@@ -6,7 +6,6 @@ import Herader from '../components/header/Herader'
 function Game() {
   return (
     <div>
-      <Nav />
         <Herader />
     </div>
   )
