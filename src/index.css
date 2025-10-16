@@ -14,7 +14,7 @@
 }
 
 .flag{
-    color: black;
+    color: white;
 }
 
 .BarSunV
@@ -40,9 +40,7 @@
   transition: background-color 0.3s ease;
 }
 
-.dark-blue-theme .flag{
-    color: white;
-} 
+
 /* .dark-blue-theme .nav-h2-span{
 
 } */

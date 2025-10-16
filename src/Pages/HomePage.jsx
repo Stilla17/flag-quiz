@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Nav from '../components/Nav/Nav'
 import Orb from '../components/OrbReact/Orb.jsx'
-import Herader from '../components/Nav/header/Herader.jsx';
 
 function HomePage() {
     const [houss, setHouss] = useState(0)
