@@ -12,7 +12,6 @@ export function ThemeProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem("theme", isRedTheme ? "red" : "primary");
-
     document.documentElement.classList.toggle("dark-blue-theme", !isRedTheme);
   }, [isRedTheme]);
 
@@ -20,10 +19,8 @@ export function ThemeProvider({ children }) {
     <ThemeContext.Provider value={{ isRedTheme, setIsRedTheme }}>
       <div
         className={`min-h-screen transition-colors duration-500 ${isRedTheme
-            ? "bg-red-900 text-white"
-            : "bg-[#0A0F24]"
-        }`}
-            : "bg-[#0A0F24] text-base-content"
+          ? "bg-red-900 text-white"
+          : "bg-[#0A0F24] text-base-content"
           }`}
       >
         {children}
