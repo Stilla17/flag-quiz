@@ -2,26 +2,30 @@
 @plugin "daisyui";
 
 
-.nav-h2{
+.nav-h2 {
     color: #fb2c36;
 }
 
-.nav-h2-span{
+.nav-h2-span {
     color: white;
 }
-.toggel-btn{
+
+.toggel-btn {
     background-color: #fb2c36;
 }
 
 .dark-blue-theme .nav-h2 {
-  color:  var(--color-primary);
+    color: var(--color-primary);
 }
+
 .dark-blue-theme .toggel-btn {
     background-color: var(--color-primary);
 }
-.dark-blue-theme .huse{
+
+.dark-blue-theme .huse {
     color: white;
 }
+
 /* .dark-blue-theme .nav-h2-span{
 
 } */

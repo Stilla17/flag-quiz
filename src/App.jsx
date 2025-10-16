@@ -1,20 +1,21 @@
-import React from 'react'
-import { Route, Routes } from 'react-router'
-import Layout from './Pages/Layout'
-import HomePage from './Pages/HomePage'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from './pages/Layout.jsx';
+import Game from './pages/Game.jsx';
+import Settings from './pages/Settings.jsx';
+import HomePage from "./Pages/HomePage.jsx";
 
-const App = () => {
+function App() {
   return (
-    <div>
-      {/* <Routes>
-        <Route element={<Layout />}>
-          <Route />
-        </Route >
-      </Routes> */}
+    <Routes>
 
-      <HomePage />
-    </div>
-  )
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="game" element={<Game />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;

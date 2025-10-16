@@ -9,17 +9,17 @@ function HomePage() {
   const minutes = now.getMinutes();
   return (
     <div>
-        <nav>
-            <Nav />
-        </nav>
-        <div className='w-full'>
+      <nav>
+        <Nav />
+      </nav>
+      <div className='w-full'>
         <div className='w-full max-w-[500px] relative flex justify-center items-center h-[500px] py-[20px]'>
-            <div className='w-full absolute rounded-[50px] h-[400px]'>
-                <Orb hoverIntensity={0.5} rotateOnHover={true} hue={200} forceHoverState={false}/>
-            </div>
-            <h2 className='text-[52px] font-bold huse'>{house} : {minutes}</h2>
+          <div className='w-full absolute rounded-[50px] h-[400px]'>
+            <Orb hoverIntensity={0.5} rotateOnHover={true} hue={200} forceHoverState={false} />
+          </div>
+          <h2 className='text-[52px] font-bold huse'>{house} : {minutes}</h2>
         </div>
-        </div>
+      </div>
     </div>
   )
 }
