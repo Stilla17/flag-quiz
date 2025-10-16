@@ -21,6 +21,8 @@ export function ThemeProvider({ children }) {
       <div
         className={`min-h-screen transition-colors duration-500 ${isRedTheme
             ? "bg-red-900 text-white"
+            : "bg-[#0A0F24]"
+        }`}
             : "bg-[#0A0F24] text-base-content"
           }`}
       >
